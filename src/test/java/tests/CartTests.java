@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CheckoutPage;
 
-public class CartTests extends BaseTest{
+public class CartTests extends BaseTest {
 
     @Test
     public void addProductToCartTest() {
@@ -14,4 +14,6 @@ public class CartTests extends BaseTest{
         productsPage.openPage("https://www.saucedemo.com/cart.html");
         Assert.assertEquals(cartPage.getProductPrice("Sauce Labs Bolt T-Shirt"), "$15.99");
     }
+
+
 }
