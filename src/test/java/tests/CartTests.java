@@ -2,13 +2,13 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.CheckoutPage;
 
 public class CartTests extends BaseTest {
 
     @Test
     public void addProductToCartTest() {
         loginPage.openPage("https://www.saucedemo.com/");
+        loginPage.waitForOpenPage();
         loginPage.login("standard_user", "secret_sauce");
         productsPage.addProductToCart("Sauce Labs Bolt T-Shirt");
         productsPage.openPage("https://www.saucedemo.com/cart.html");
@@ -16,15 +16,12 @@ public class CartTests extends BaseTest {
     }
 
     @Test
-    public void ChangeProductQuantityTest(){
+    public void getProductQuantityTest(){
         loginPage.openPage("https://www.saucedemo.com/");
         loginPage.login("standard_user", "secret_sauce");
         productsPage.addProductToCart("Sauce Labs Bolt T-Shirt");
         productsPage.openPage("https://www.saucedemo.com/cart.html");
-        cartPage.changeQuantity("5");
-        cartPage.getQuantity();
-        Assert.assertEquals(cartPage.getQuantity(),"5","Error");
+        cartPage.getQuantity("Sauce Labs Bolt T-Shirt");
+        Assert.assertEquals(cartPage.getQuantity("Sauce Labs Bolt T-Shirt"),"1","Error");
     }
-
-
 }
