@@ -12,7 +12,7 @@ public class CheckoutCompleteTests extends CheckoutStepTwoTests{
         productsPage.addProductToCart("Sauce Labs Bolt T-Shirt");
         productsPage.openPage("https://www.saucedemo.com/cart.html");
         cartPage.clickCheckOutButton();
-        checkoutPage.fillField("Glieb","Boiechko","50-555");
+        checkoutPage.fillInUserData("Glieb","Boiechko","50-555");
         checkoutPage.clickContinueButton();
         checkoutStepTwoPage.clickFinishButton();
         checkoutComplete.getFinalCheckOutText();

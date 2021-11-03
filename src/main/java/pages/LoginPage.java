@@ -3,8 +3,6 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import java.util.concurrent.TimeUnit;
-
 public class LoginPage extends BasePage {
 
     public LoginPage(WebDriver driver) {
@@ -18,6 +16,8 @@ public class LoginPage extends BasePage {
     private static final By LOGIN_ERROR = By.xpath("//*[text()='Epic sadface: Username and password do not match any user in this service']");
     private static final By INCORRECT_USERNAME = By.xpath("//*[text()='Epic sadface: Username is required']");
     private static final By INCORRECT_PASSWORD = By.xpath("//*[text()='Epic sadface: Password is required']");
+    private static final String BASE_URL = "https://www.saucedemo.com/";
+
 
 
 
@@ -40,6 +40,12 @@ public class LoginPage extends BasePage {
     }
 
     public void waitForOpenPage() {
-        waitForElementLocate(BOT_LOGO, 10);
+        waitForElementLocated(BOT_LOGO, 10);
     }
+
+    public LoginPage waitForPageOpened() {
+        openPage(BASE_URL);
+        return this;
+    }
+
 }

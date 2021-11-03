@@ -13,9 +13,6 @@ public class CartPage extends BasePage {
     private static final By CHECK_OUT_BUTTON = By.xpath("//*[@id='checkout']");
     private static final String PRODUCT_QUANTITY = "//*[@class='cart_quantity']";
 
-
-
-
     public String getProductPrice(String productName) {
         return driver.findElement(By.xpath(String.format(PRODUCT_PRICE, productName))).getText();
     }
@@ -24,9 +21,7 @@ public class CartPage extends BasePage {
         driver.findElement(CHECK_OUT_BUTTON).click();
     }
 
-
-    public String getQuantity(String productName) {
+    public String getProductQuantity(String productName) {
         return driver.findElement(By.xpath(String.format(PRODUCT_QUANTITY, productName))).getText();
-
     }
 }

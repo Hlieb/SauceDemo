@@ -12,7 +12,7 @@ public class CheckoutStepTwoTests extends CheckoutTest {
         productsPage.addProductToCart("Sauce Labs Bolt T-Shirt");
         productsPage.openPage("https://www.saucedemo.com/cart.html");
         cartPage.clickCheckOutButton();
-        checkoutPage.fillField("Glieb","Boiechko","50-555");
+        checkoutPage.fillInUserData("Glieb","Boiechko","50-555");
         checkoutPage.clickContinueButton();
         checkoutStepTwoPage.clickFinishButton();
         Assert.assertEquals(driver.getCurrentUrl(),"https://www.saucedemo.com/checkout-complete.html","Error");
@@ -25,7 +25,7 @@ public class CheckoutStepTwoTests extends CheckoutTest {
         productsPage.addProductToCart("Sauce Labs Bolt T-Shirt");
         productsPage.openPage("https://www.saucedemo.com/cart.html");
         cartPage.clickCheckOutButton();
-        checkoutPage.fillField("Glieb","Boiechko","50-555");
+        checkoutPage.fillInUserData("Glieb","Boiechko","50-555");
         checkoutPage.clickContinueButton();
         checkoutStepTwoPage.clickCancelButton();
         Assert.assertEquals(driver.getCurrentUrl(),"https://www.saucedemo.com/inventory.html","Error");

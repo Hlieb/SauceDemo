@@ -22,6 +22,7 @@ public class BaseTest {
     CheckoutStepTwoPage checkoutStepTwoPage;
     CheckoutCompletePage checkoutComplete;
     WebDriverWait wait;
+    LoginPageFactory loginPageFactory;
 
     @BeforeMethod
     public void initTest() {
@@ -35,6 +36,7 @@ public class BaseTest {
         checkoutPage = new CheckoutPage(driver);
         checkoutStepTwoPage = new CheckoutStepTwoPage(driver);
         checkoutComplete = new CheckoutCompletePage(driver);
+        loginPageFactory = new LoginPageFactory(driver);
     }
 
     @AfterMethod

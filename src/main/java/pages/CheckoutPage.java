@@ -7,7 +7,6 @@ public class CheckoutPage extends ProductsPage {
 
     public CheckoutPage(WebDriver driver) {
         super(driver);
-
     }
 
     private static final By FIELD_FIRST_NAME = By.xpath("//*[@id='first-name']");
@@ -20,15 +19,14 @@ public class CheckoutPage extends ProductsPage {
         driver.findElement(CONTINUE_BUTTON).click();
     }
 
-    public void fillField(String firstName, String secondName, String postCode){
+    public void fillInUserData(String firstName, String secondName, String postCode) {
         driver.findElement(FIELD_FIRST_NAME).sendKeys(firstName);
         driver.findElement(FIELD_LAST_NAME).sendKeys(secondName);
         driver.findElement(FIELD_POSTAL_CODE).sendKeys(postCode);
     }
 
-    public void checkOutOnlyWithFirstName(String firstName) {
+    public void fillInFirstName(String firstName) {
         driver.findElement(FIELD_FIRST_NAME).sendKeys(firstName);
-        driver.findElement(CONTINUE_BUTTON).click();
     }
 
     public String getCheckoutErrorText() {
