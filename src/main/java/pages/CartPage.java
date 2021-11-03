@@ -10,6 +10,7 @@ public class CartPage extends BasePage {
     }
 
     private static final By CHECKOUT_BUTTON = By.xpath("//*[@id='checkout']");
+    private static final String CART_URL = "/cart.html";
     private static final String PRODUCT_PRICE = "//*[text()='%s']/ancestor::*[@class='cart_item']//*[@class='inventory_item_price']";
 
     public String getProductPrice(String productName) {
@@ -19,5 +20,10 @@ public class CartPage extends BasePage {
     public CheckoutPage clickCheckOutButton() {
         driver.findElement(CHECKOUT_BUTTON).click();
         return new CheckoutPage(driver);
+    }
+    public CartPage openPage() {
+        openPage(BASE_URL + CART_URL);
+        waitForPageLoaded();
+        return this;
     }
 }

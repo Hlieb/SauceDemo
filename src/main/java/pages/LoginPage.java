@@ -27,7 +27,11 @@ public class LoginPage extends BasePage {
 
     public LoginPage openPage() {
         openPage(BASE_URL);
+        waitForPageLoaded();
         return new LoginPage(driver);
+    }
+    public void waitForPageOpenedExample() {
+        waitForElementLocated(BOT_LOGO, 10);
     }
 
     public String getIncorrectLoginText() {

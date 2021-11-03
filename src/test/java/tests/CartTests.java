@@ -12,8 +12,8 @@ public class CartTests extends BaseTest {
     public void addProductToCartTest() {
         loginPage.openPage()
                 .login("standard_user", "secret_sauce")
-                .addProductToCart("Sauce Labs Bolt T-Shirt")
-                .openPage();
+                .addProductToCart("Sauce Labs Bolt T-Shirt");
+        cartPage.openPage();
         Assert.assertEquals(cartPage.getProductPrice("Sauce Labs Bolt T-Shirt"), "$15.99");
     }
 
@@ -21,8 +21,8 @@ public class CartTests extends BaseTest {
     public void addProductToCartWithPageFactoryTest() {
         loginPage.openPage()
                 .login("standard_user", "secret_sauce")
-                .addProductToCart("Sauce Labs Bolt T-Shirt")
-                .openPage("https://www.saucedemo.com/cart.html");
+                .addProductToCart("Sauce Labs Bolt T-Shirt");
+               cartPage.openPage();
         Assert.assertEquals(cartPage.getProductPrice("Sauce Labs Bolt T-Shirt"), "$15.99");
     }
 }

@@ -21,8 +21,4 @@ public class ProductsPage extends BasePage{
         return this;
     }
 
-    public ProductsPage openPage() {
-        openPage(BASE_URL + CART_URL);
-        return new ProductsPage(driver);
     }
-}
