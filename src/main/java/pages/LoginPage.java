@@ -20,11 +20,16 @@ public class LoginPage extends BasePage {
     private static final By INCORRECT_PASSWORD = By.xpath("//*[text()='Epic sadface: Password is required']");
 
 
-
-    public void login(String username, String password) {
+    public ProductsPage login(String username, String password) {
         driver.findElement(USERNAME_INPUT).sendKeys(username);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
         driver.findElement(LOGIN_BUTTON).click();
+        return new ProductsPage(driver);
+    }
+
+    public LoginPage openPage() {
+        openPage(BASE_URL);
+        return new LoginPage(driver);
     }
 
     public String getIncorrectLoginText() {
@@ -37,9 +42,5 @@ public class LoginPage extends BasePage {
 
     public String getIncorrectPassword() {
         return driver.findElement(INCORRECT_PASSWORD).getText();
-    }
-
-    public void waitForOpenPage() {
-        waitForElementLocate(BOT_LOGO, 10);
     }
 }

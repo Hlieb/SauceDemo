@@ -16,6 +16,7 @@ public class CheckoutPage extends ProductsPage {
     private static final By CONTINUE_BUTTON = By.xpath("//*[@id='continue']");
     private static final By CHECKOUT_ERROR_BUTTON = By.xpath("//*[@data-test='error']");
 
+
     public void clickContinueButton() {
         driver.findElement(CONTINUE_BUTTON).click();
     }
