@@ -3,8 +3,6 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import java.util.concurrent.TimeUnit;
-
 public class LoginPage extends BasePage {
 
     public LoginPage(WebDriver driver) {
@@ -33,7 +31,7 @@ public class LoginPage extends BasePage {
     }
 
     public String getIncorrectLoginText() {
-        return driver.findElement(LOGIN_ERROR).getText();
+      return driver.findElement(LOGIN_ERROR).getText();
     }
 
     public String getIncorrectUsername() {

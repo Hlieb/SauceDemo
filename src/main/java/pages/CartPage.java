@@ -9,7 +9,6 @@ public class CartPage extends BasePage {
         super(driver);
     }
 
-    private static final String CART_URL = "/cart.html";
     private static final By CHECKOUT_BUTTON = By.xpath("//*[@id='checkout']");
     private static final String PRODUCT_PRICE = "//*[text()='%s']/ancestor::*[@class='cart_item']//*[@class='inventory_item_price']";
 
@@ -17,12 +16,8 @@ public class CartPage extends BasePage {
         return driver.findElement(By.xpath(String.format(PRODUCT_PRICE, productName))).getText();
     }
 
-    public void clickCheckOutButton() {
+    public CheckoutPage clickCheckOutButton() {
         driver.findElement(CHECKOUT_BUTTON).click();
-    }
-
-    public CartPage openPage() {
-        openPage(BASE_URL + CART_URL);
-        return this;
+        return new CheckoutPage(driver);
     }
 }
