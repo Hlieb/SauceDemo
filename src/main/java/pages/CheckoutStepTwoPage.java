@@ -12,11 +12,13 @@ public class CheckoutStepTwoPage extends BasePage {
         super(driver);
     }
 
-    public void clickCancelButton(){
+    public ProductsPage clickCancelButton(){
         driver.findElement(CANCEL_BUTTON).click();
+        return new ProductsPage(driver);
     }
 
-    public void clickFinishButton(){
+    public CheckoutCompletePage clickFinishButton(){
         driver.findElement(FINISH_BUTTON).click();
+        return new CheckoutCompletePage(driver);
     }
 }

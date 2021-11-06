@@ -20,11 +20,12 @@ public class LoginPageFactory extends BasePage{
     @FindBy(xpath = "//*[@class='bot_column']")
     WebElement botLogo;
 
-    public void login(String username, String password) {
+    public ProductsPage login(String username, String password) {
         waitForElementLocated(userNameInput, 10);
         userNameInput.sendKeys(username);
         passwordInput.sendKeys(password);
         loginButton.click();
+        return new ProductsPage(driver);
     }
 
     public void waitForPageOpened() {
