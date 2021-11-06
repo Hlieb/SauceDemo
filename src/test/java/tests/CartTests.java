@@ -3,10 +3,13 @@ package tests;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.BasePage;
 
 public class CartTests extends BaseTest {
+
+
 
     @Test
     public void addProductToCartTest() {

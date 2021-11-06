@@ -1,16 +1,26 @@
 package tests;
 
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
 public class LoginTest extends BaseTest {
 
-    @Test
-    public void loginWithCorrectDataTest() {
+    @DataProvider(name = "name")
+    public Object[][] userData() {
+        return new Object[][]{
+                {"standard_user","secret_sauce"},
+                {"standart_user", ""},
+                {"", "standart_user"},
+        };
+    }
+
+    @Test(dataProvider = "name",retryAnalyzer = RetryTest.class)
+    public void loginWithCorrectDataTest(String username, String password) {
         loginPage.openPage()
-                .login("standard_user", "secret_sauce");
+                .login(username, password);
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/inventory.html", "URL doesnt wait");
     }
 
