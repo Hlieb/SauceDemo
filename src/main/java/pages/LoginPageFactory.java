@@ -11,12 +11,6 @@ public class LoginPageFactory extends BasePage{
         super(driver);
     }
 
-    @FindBy(xpath = "//*[@id='user-name']")
-    WebElement userNameInput;
-    @FindBy(xpath = "//*[@id='password']")
-    WebElement passwordInput;
-    @FindBy(xpath = "//*[@id='login-button']")
-    WebElement loginButton;
     @FindBy(xpath = "//*[@class='bot_column']")
     WebElement botLogo;
 
@@ -31,5 +25,4 @@ public class LoginPageFactory extends BasePage{
     public void waitForPageOpened() {
         waitForElementLocated(botLogo, 10);
     }
-
 }

@@ -18,7 +18,10 @@ public class ProductsPage extends BasePage{
         waitForElementLocated(driver.findElement(By.xpath(String.format(ADD_PRODUCT_TO_CART_BUTTON, productName))), 10);
         WebElement addProductToCartButton = driver.findElement(By.xpath(String.format(ADD_PRODUCT_TO_CART_BUTTON, productName)));
         addProductToCartButton.click();
+    }
+  
+    public ProductsPage openPage() {
+        openPage(CART_URL);
         return this;
     }
-
     }

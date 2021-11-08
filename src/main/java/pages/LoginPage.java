@@ -16,6 +16,8 @@ public class LoginPage extends BasePage {
     private static final By LOGIN_ERROR = By.xpath("//*[text()='Epic sadface: Username and password do not match any user in this service']");
     private static final By INCORRECT_USERNAME = By.xpath("//*[text()='Epic sadface: Username is required']");
     private static final By INCORRECT_PASSWORD = By.xpath("//*[text()='Epic sadface: Password is required']");
+    private static final String BASE_URL = "https://www.saucedemo.com/";
+
 
 
     public ProductsPage login(String username, String password) {
@@ -44,5 +46,10 @@ public class LoginPage extends BasePage {
 
     public String getIncorrectPassword() {
         return driver.findElement(INCORRECT_PASSWORD).getText();
+    }
+
+    public LoginPage waitForPageOpened() {
+        openPage(BASE_URL);
+        return this;
     }
 }
