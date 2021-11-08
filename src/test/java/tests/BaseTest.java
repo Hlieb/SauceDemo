@@ -24,6 +24,7 @@ public class BaseTest {
     WebDriverWait wait;
     LoginPageFactory loginPageFactory;
 
+
     @BeforeMethod
     public void initTest() {
         WebDriverManager.chromedriver().setup();

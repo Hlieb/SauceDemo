@@ -3,19 +3,18 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class CheckoutCompleteTests extends CheckoutStepTwoTests{
+public class CheckoutCompleteTests extends BaseTest {
 
     @Test
-    public void checkoutCompleteTest(){
-        loginPage.openPage("https://www.saucedemo.com/");
-        loginPage.login("standard_user", "secret_sauce");
-        productsPage.addProductToCart("Sauce Labs Bolt T-Shirt");
-        productsPage.openPage("https://www.saucedemo.com/cart.html");
-        cartPage.clickCheckOutButton();
-        checkoutPage.fillInUserData("Glieb","Boiechko","50-555");
-        checkoutPage.clickContinueButton();
-        checkoutStepTwoPage.clickFinishButton();
-        checkoutComplete.getFinalCheckOutText();
-        Assert.assertEquals(checkoutComplete.getFinalCheckOutText(),"CHECKOUT: COMPLETE!", "Error");
+    public void checkoutCompleteTest() {
+        loginPage.openPage()
+                .login("standard_user", "secret_sauce")
+                .addProductToCart("Sauce Labs Bolt T-Shirt");
+        cartPage.openPage()
+                .clickCheckOutButton()
+                .fillField("Glieb", "Boiechko", "50-555")
+                .clickContinueButton()
+                .clickFinishButton();
+        Assert.assertEquals(checkoutComplete.getFinalCheckOutText(), "CHECKOUT: COMPLETE!", "Error");
     }
 }

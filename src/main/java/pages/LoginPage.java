@@ -20,15 +20,24 @@ public class LoginPage extends BasePage {
 
 
 
-
-    public void login(String username, String password) {
+    public ProductsPage login(String username, String password) {
         driver.findElement(USERNAME_INPUT).sendKeys(username);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
         driver.findElement(LOGIN_BUTTON).click();
+        return new ProductsPage(driver);
+    }
+
+    public LoginPage openPage() {
+        openPage(BASE_URL);
+        waitForPageLoaded();
+        return this;
+    }
+    public void waitForPageOpenedExample() {
+        waitForElementLocated(BOT_LOGO, 10);
     }
 
     public String getIncorrectLoginText() {
-        return driver.findElement(LOGIN_ERROR).getText();
+      return driver.findElement(LOGIN_ERROR).getText();
     }
 
     public String getIncorrectUsername() {
@@ -39,13 +48,8 @@ public class LoginPage extends BasePage {
         return driver.findElement(INCORRECT_PASSWORD).getText();
     }
 
-    public void waitForOpenPage() {
-        waitForElementLocated(BOT_LOGO, 10);
-    }
-
     public LoginPage waitForPageOpened() {
         openPage(BASE_URL);
         return this;
     }
-
 }

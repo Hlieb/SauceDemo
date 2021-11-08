@@ -3,7 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class CheckoutPage extends ProductsPage {
+public class CheckoutPage extends BasePage {
 
     public CheckoutPage(WebDriver driver) {
         super(driver);
@@ -15,14 +15,16 @@ public class CheckoutPage extends ProductsPage {
     private static final By CONTINUE_BUTTON = By.xpath("//*[@id='continue']");
     private static final By CHECKOUT_ERROR_BUTTON = By.xpath("//*[@data-test='error']");
 
-    public void clickContinueButton() {
+    public  CheckoutStepTwoPage clickContinueButton() {
         driver.findElement(CONTINUE_BUTTON).click();
+        return new CheckoutStepTwoPage(driver);
     }
 
-    public void fillInUserData(String firstName, String secondName, String postCode) {
+    public CheckoutPage fillField(String firstName, String secondName, String postCode) {
         driver.findElement(FIELD_FIRST_NAME).sendKeys(firstName);
         driver.findElement(FIELD_LAST_NAME).sendKeys(secondName);
         driver.findElement(FIELD_POSTAL_CODE).sendKeys(postCode);
+        return this;
     }
 
     public void fillInFirstName(String firstName) {
