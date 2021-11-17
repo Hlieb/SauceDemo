@@ -5,7 +5,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -24,7 +23,7 @@ public class BasePage {
         driver.get(URL);
     }
 
-    public void waitForElementLocated(By element, int timeout) {
+    public void waitForElementLocated(By element, int timeout ) {
         wait = new WebDriverWait(driver, timeout);
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
     }
@@ -42,4 +41,3 @@ public class BasePage {
         };
     }
 }
-

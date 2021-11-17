@@ -40,7 +40,6 @@ public class BaseTest {
         checkoutStepTwoPage = new CheckoutStepTwoPage(driver);
         checkoutComplete = new CheckoutCompletePage(driver);
         loginPageFactory = new LoginPageFactory(driver);
-
     }
 
     @AfterMethod

@@ -8,7 +8,6 @@ public class CheckoutPage extends BasePage {
 
     public CheckoutPage(WebDriver driver) {
         super(driver);
-
     }
 
     private static final By FIELD_FIRST_NAME = By.xpath("//*[@id='first-name']");
@@ -33,8 +32,8 @@ public class CheckoutPage extends BasePage {
 
     @Step("Filling only field : '{firstName}'")
     public void checkOutOnlyWithFirstName(String firstName) {
+
         driver.findElement(FIELD_FIRST_NAME).sendKeys(firstName);
-        driver.findElement(CONTINUE_BUTTON).click();
     }
 
     public String getCheckoutErrorText() {

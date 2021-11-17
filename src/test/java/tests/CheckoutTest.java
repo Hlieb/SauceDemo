@@ -28,5 +28,3 @@ public class CheckoutTest extends BaseTest {
         Assert.assertEquals(checkoutPage.getCheckoutErrorText(), "Error: Last Name is required", "Error");
     }
 }
-
-

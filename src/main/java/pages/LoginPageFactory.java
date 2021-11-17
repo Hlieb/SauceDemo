@@ -11,24 +11,18 @@ public class LoginPageFactory extends BasePage{
         super(driver);
     }
 
-    @FindBy(xpath = "//*[@id='user-name']")
-    WebElement userNameInput;
-    @FindBy(xpath = "//*[@id='password']")
-    WebElement passwordInput;
-    @FindBy(xpath = "//*[@id='login-button']")
-    WebElement loginButton;
     @FindBy(xpath = "//*[@class='bot_column']")
     WebElement botLogo;
 
-    public void login(String username, String password) {
+    public ProductsPage login(String username, String password) {
         waitForElementLocated(userNameInput, 10);
         userNameInput.sendKeys(username);
         passwordInput.sendKeys(password);
         loginButton.click();
+        return new ProductsPage(driver);
     }
 
     public void waitForPageOpened() {
         waitForElementLocated(botLogo, 10);
     }
-
 }

@@ -28,6 +28,6 @@ public class CartPage extends BasePage {
     public CartPage openPage() {
         openPage(BASE_URL + CART_URL);
         waitForPageLoaded();
-        return this;
+        return this; 
     }
 }
