@@ -12,12 +12,10 @@ public class LoginTest extends BaseTest {
     public Object[][] userData() {
         return new Object[][]{
                 {"standard_user","secret_sauce"},
-                {"standart_user", ""},
-                {"", "standart_user"},
         };
     }
 
-    @Test(dataProvider = "name",retryAnalyzer = RetryTest.class)
+    @Test(retryAnalyzer = RetryTest.class,dataProvider = "name")
     public void loginWithCorrectDataTest(String username, String password) {
         loginPage.openPage()
                 .login(username, password);

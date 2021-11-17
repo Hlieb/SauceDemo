@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -16,11 +17,13 @@ public class CheckoutPage extends BasePage {
     private static final By CONTINUE_BUTTON = By.xpath("//*[@id='continue']");
     private static final By CHECKOUT_ERROR_BUTTON = By.xpath("//*[@data-test='error']");
 
+    @Step("Clicking button continue")
     public  CheckoutStepTwoPage clickContinueButton() {
         driver.findElement(CONTINUE_BUTTON).click();
         return new CheckoutStepTwoPage(driver);
     }
 
+    @Step("Filling fields: '{firstName}' + '{secondName}' + '{postcode}'")
     public CheckoutPage fillField(String firstName, String secondName, String postCode) {
         driver.findElement(FIELD_FIRST_NAME).sendKeys(firstName);
         driver.findElement(FIELD_LAST_NAME).sendKeys(secondName);
@@ -28,6 +31,7 @@ public class CheckoutPage extends BasePage {
         return this;
     }
 
+    @Step("Filling only field : '{firstName}'")
     public void checkOutOnlyWithFirstName(String firstName) {
         driver.findElement(FIELD_FIRST_NAME).sendKeys(firstName);
         driver.findElement(CONTINUE_BUTTON).click();

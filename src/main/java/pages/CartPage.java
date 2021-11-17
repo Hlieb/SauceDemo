@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -17,10 +18,13 @@ public class CartPage extends BasePage {
         return driver.findElement(By.xpath(String.format(PRODUCT_PRICE, productName))).getText();
     }
 
+    @Step ("Clicking button 'Checkout'")
     public CheckoutPage clickCheckOutButton() {
         driver.findElement(CHECKOUT_BUTTON).click();
         return new CheckoutPage(driver);
     }
+
+    @Step ("Opening page: https://www.saucedemo.com/cart.html")
     public CartPage openPage() {
         openPage(BASE_URL + CART_URL);
         waitForPageLoaded();
