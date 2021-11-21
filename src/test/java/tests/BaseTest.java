@@ -11,8 +11,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import pages.*;
-import steps.CartSteps;
-import steps.ProductSteps;
 
 import java.util.concurrent.TimeUnit;
 
@@ -27,7 +25,6 @@ public class BaseTest {
     CheckoutCompletePage checkoutComplete;
     WebDriverWait wait;
     LoginPageFactory loginPageFactory;
-    ProductSteps productSteps;
 
 
     @BeforeMethod
@@ -36,16 +33,13 @@ public class BaseTest {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        //loginPage = new LoginPage(driver);
+        loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
         cartPage = new CartPage(driver);
         checkoutPage = new CheckoutPage(driver);
         checkoutStepTwoPage = new CheckoutStepTwoPage(driver);
         checkoutComplete = new CheckoutCompletePage(driver);
         loginPageFactory = new LoginPageFactory(driver);
-        productSteps = new ProductSteps(driver);
-
-
     }
 
     @AfterMethod
