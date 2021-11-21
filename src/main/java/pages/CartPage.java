@@ -24,7 +24,6 @@ public class CartPage extends BasePage {
         return new CheckoutPage(driver);
     }
 
-    @Step ("Opening page: https://www.saucedemo.com/cart.html")
     public CartPage openPage() {
         openPage(BASE_URL + CART_URL);
         waitForPageLoaded();

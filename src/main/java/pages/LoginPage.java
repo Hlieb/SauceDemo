@@ -22,7 +22,7 @@ public class LoginPage extends BasePage {
 
 
 
-    @Step("Login as '{username}' with '{password}'")
+    @Step("Login as username: '{username}' with password: '{password}'")
     public ProductsPage login(String username, String password) {
         driver.findElement(USERNAME_INPUT).sendKeys(username);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
@@ -30,7 +30,7 @@ public class LoginPage extends BasePage {
         return new ProductsPage(driver);
     }
 
-    @Step("Opening page https://www.saucedemo.com'")
+
     public LoginPage openPage() {
         openPage(BASE_URL);
         waitForPageLoaded();

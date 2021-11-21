@@ -7,9 +7,7 @@ public class CheckoutStepTwoTests extends BaseTest {
 
     @Test
     public void clickFinishButtonTest() {
-        loginPage.openPage()
-                .login("standard_user", "secret_sauce")
-                .addProductToCart("Sauce Labs Bolt T-Shirt");
+        productSteps.loginAndAddProductToCart();
         cartPage.openPage()
                 .clickCheckOutButton()
                 .fillField("Glieb", "Boiechko", "50-555")
@@ -20,9 +18,7 @@ public class CheckoutStepTwoTests extends BaseTest {
 
     @Test
     public void clickCancelButtonTest() {
-        loginPage.openPage()
-                .login("standard_user", "secret_sauce")
-                .addProductToCart("Sauce Labs Bolt T-Shirt");
+        productSteps.loginAndAddProductToCart();
         cartPage.openPage()
                 .clickCheckOutButton()
                 .fillField("Glieb", "Boiechko", "50-555")
