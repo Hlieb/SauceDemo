@@ -23,7 +23,7 @@ public class CheckoutPage extends BasePage {
         return new CheckoutStepTwoPage(driver);
     }
 
-    @Step("Filling fields: '{firstName}' + '{secondName}' + '{postcode}'")
+    @Step("Filling fields: FirstName: '{firstName}' + LastName: '{secondName}' + Postcode: '{postcode}'")
     public CheckoutPage fillField(String firstName, String secondName, String postCode) {
         driver.findElement(FIELD_FIRST_NAME).sendKeys(firstName);
         driver.findElement(FIELD_LAST_NAME).sendKeys(secondName);
@@ -31,7 +31,7 @@ public class CheckoutPage extends BasePage {
         return this;
     }
 
-    @Step("Filling only field : '{firstName}'")
+    @Step("Filling FirstName field: '{firstName}'")
     public void checkOutOnlyWithFirstName(String firstName) {
         driver.findElement(FIELD_FIRST_NAME).sendKeys(firstName);
         driver.findElement(CONTINUE_BUTTON).click();

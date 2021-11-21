@@ -8,3 +8,5 @@ Login page Checklist
 Checkout page Checklist
 1. Checkout with filled all fields
 2. Checkout only with filled Username field
+
+

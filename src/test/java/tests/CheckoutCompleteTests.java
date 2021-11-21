@@ -7,9 +7,7 @@ public class CheckoutCompleteTests extends BaseTest {
 
     @Test
     public void checkoutCompleteTest() {
-        loginPage.openPage()
-                .login("standard_user", "secret_sauce")
-                .addProductToCart("Sauce Labs Bolt T-Shirt");
+        productSteps.loginAndAddProductToCart();
         cartPage.openPage()
                 .clickCheckOutButton()
                 .fillField("Glieb", "Boiechko", "50-555")
