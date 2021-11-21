@@ -17,7 +17,6 @@ public class CartSteps {
         this.cartPage = cartPage;
     }
 
-
     public CartSteps AddProductToCart(){
         loginPage.openPage()
                 .login("standard_user", "secret_sauce")
