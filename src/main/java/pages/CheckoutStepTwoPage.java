@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -12,12 +13,14 @@ public class CheckoutStepTwoPage extends BasePage {
         super(driver);
     }
 
-    public ProductsPage clickCancelButton(){
+    @Step("Clicking button 'Cancel'")
+    public void clickCancelButton(){
         driver.findElement(CANCEL_BUTTON).click();
         return new ProductsPage(driver);
     }
 
-    public CheckoutCompletePage clickFinishButton(){
+    @Step("Clicking button 'FINISH'")
+    public void clickFinishButton(){
         driver.findElement(FINISH_BUTTON).click();
         return new CheckoutCompletePage(driver);
     }

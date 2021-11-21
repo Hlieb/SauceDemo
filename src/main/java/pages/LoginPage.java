@@ -1,5 +1,7 @@
 package pages;
 
+import com.sun.org.apache.xerces.internal.impl.xpath.XPath;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -20,6 +22,7 @@ public class LoginPage extends BasePage {
 
 
 
+    @Step("Login as '{username}' with '{password}'")
     public ProductsPage login(String username, String password) {
         driver.findElement(USERNAME_INPUT).sendKeys(username);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
@@ -27,6 +30,7 @@ public class LoginPage extends BasePage {
         return new ProductsPage(driver);
     }
 
+    @Step("Opening page https://www.saucedemo.com'")
     public LoginPage openPage() {
         openPage(BASE_URL);
         waitForPageLoaded();

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="5" name="Test suite" parallel="classes">
+    <test name="Tests">
+<!--        <groups>
+            <run>
+                <include name="Писал Юра" />
+            </run>
+        </groups>-->
+        <classes>
+            <class name="tests.LoginTest"/>
+            <class name="tests.CartTests"/>
+
+     </classes>
+</test> <!-- Test -->
+
+</suite>
