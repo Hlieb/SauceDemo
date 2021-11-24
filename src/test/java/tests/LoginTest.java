@@ -15,7 +15,7 @@ public class LoginTest extends BaseTest {
         };
     }
 
-    @Test(retryAnalyzer = RetryTest.class,dataProvider = "name")
+    @Test(retryAnalyzer = RetryTest.class)
     public void loginWithCorrectDataTest(String username, String password) {
         loginPage.openPage()
                 .login(username, password);
