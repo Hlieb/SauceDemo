@@ -26,7 +26,7 @@ public class BaseTest {
     CheckoutStepTwoPage checkoutStepTwoPage;
     CheckoutCompletePage checkoutComplete;
     WebDriverWait wait;
-    LoginPageFactory loginPageFactory;
+    // LoginPageFactory loginPageFactory;
     ProductSteps productSteps;
     CartSteps cartSteps;
 
@@ -43,7 +43,7 @@ public class BaseTest {
         checkoutPage = new CheckoutPage(driver);
         checkoutStepTwoPage = new CheckoutStepTwoPage(driver);
         checkoutComplete = new CheckoutCompletePage(driver);
-        loginPageFactory = new LoginPageFactory(driver);
+        //loginPageFactory = new LoginPageFactory(driver);
         productSteps = new ProductSteps(driver);
        // cartSteps = new CartSteps(driver);
 
