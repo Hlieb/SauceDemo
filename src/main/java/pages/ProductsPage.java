@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class ProductsPage extends BasePage{
+public class ProductsPage extends BasePage {
 
     public ProductsPage(WebDriver driver) {
         super(driver);
@@ -20,14 +20,11 @@ public class ProductsPage extends BasePage{
         waitForElementLocated(driver.findElement(By.xpath(String.format(ADD_PRODUCT_TO_CART_BUTTON, productName))), 10);
         WebElement addProductToCartButton = driver.findElement(By.xpath(String.format(ADD_PRODUCT_TO_CART_BUTTON, productName)));
         addProductToCartButton.click();
-    }
-  
-    public ProductsPage openPage() {
-        openPage(CART_URL);
         return this;
     }
-  
-    public ProductsPage openPage() {
+
+    public CartPage openPage() {
         openPage(CART_URL);
-        return this;
+        return new CartPage(driver);
     }
+}
