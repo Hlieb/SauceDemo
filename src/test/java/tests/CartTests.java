@@ -1,13 +1,11 @@
 package tests;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import lombok.extern.log4j.Log4j2;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import pages.BasePage;
-import pages.CartPage;
 
+
+@Log4j2
 public class CartTests extends BaseTest {
 
 

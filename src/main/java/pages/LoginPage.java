@@ -2,9 +2,11 @@ package pages;
 
 import com.sun.org.apache.xerces.internal.impl.xpath.XPath;
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+@Log4j2
 public class LoginPage extends BasePage {
 
     public LoginPage(WebDriver driver) {
@@ -24,8 +26,11 @@ public class LoginPage extends BasePage {
 
     @Step("Login as username: '{username}' with password: '{password}'")
     public ProductsPage login(String username, String password) {
+        log.info(String.format("Send keys into 'username' field: " + username));
         driver.findElement(USERNAME_INPUT).sendKeys(username);
+        log.info(String.format("Send keys into 'password' field: " + password));
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
+        log.info("Click 'Login' button");
         driver.findElement(LOGIN_BUTTON).click();
         return new ProductsPage(driver);
     }
@@ -35,9 +40,6 @@ public class LoginPage extends BasePage {
         openPage(BASE_URL);
         waitForPageLoaded();
         return this;
-    }
-    public void waitForPageOpenedExample() {
-        waitForElementLocated(BOT_LOGO, 10);
     }
 
     public String getIncorrectLoginText() {
