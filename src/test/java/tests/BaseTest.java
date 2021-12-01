@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import pages.*;
 import steps.CartSteps;
+import steps.CheckoutStep;
 import steps.ProductSteps;
 
 import java.util.concurrent.TimeUnit;
@@ -27,7 +28,8 @@ public class BaseTest {
     CheckoutCompletePage checkoutComplete;
     WebDriverWait wait;
     ProductSteps productSteps;
-    //CartSteps cartSteps;
+    CartSteps cartSteps;
+    CheckoutStep checkoutStep;
 
 
     @BeforeMethod
@@ -44,7 +46,8 @@ public class BaseTest {
         checkoutComplete = new CheckoutCompletePage(driver);
         //loginPageFactory = new LoginPageFactory(driver);
         productSteps = new ProductSteps(driver);
-        //cartSteps = new CartSteps(driver);
+        cartSteps = new CartSteps(driver);
+        checkoutStep = new CheckoutStep(driver);
 
     }
 

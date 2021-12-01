@@ -12,7 +12,7 @@ public class CartTests extends BaseTest {
     @Test
     public void addProductToCartTest() {
         productSteps.loginAndAddProductToCart();
-        cartPage.openPage();
+        cartSteps.addProductToCartAndGoToCart("standard_user","secret_sauce","Sauce Labs Bolt T-Shirt");
         Assert.assertEquals(cartPage.getProductPrice("Sauce Labs Bolt T-Shirt"), "$15.99");
     }
 

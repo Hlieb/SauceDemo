@@ -25,7 +25,7 @@ public class BasePage {
 
     @Step("Opening page '{URL}'")
     public void openPage(String URL) {
-        log.info("Open URL" + URL);
+        log.info("Open URL: " + URL);
         driver.get(URL);
     }
 

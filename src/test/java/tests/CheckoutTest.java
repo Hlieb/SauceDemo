@@ -8,10 +8,7 @@ public class CheckoutTest extends BaseTest {
     @Test
     public void checkoutWithCorrectData() {
         productSteps.loginAndAddProductToCart();
-        cartPage.openPage()
-                .clickCheckOutButton()
-                .fillField("Glieb", "Boiechko", "50-555")
-                .clickContinueButton();
+        checkoutStep.fillRequiredFields();
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/checkout-step-two.html", "Error");
     }
 
