@@ -20,7 +20,6 @@ public class ProductsPage extends BasePage {
     @Step("Adding product '{productName}' to the cart")
     public ProductsPage addProductToCart(String productName) {
         waitForElementLocated(driver.findElement(By.xpath(String.format(ADD_PRODUCT_TO_CART_BUTTON, productName))), 10);
-        log.info("Finding button 'Add Product to Cart'");
         WebElement addProductToCartButton = driver.findElement(By.xpath(String.format(ADD_PRODUCT_TO_CART_BUTTON, productName)));
         log.info("Clicking at the button 'Add Product to Cart'");
         addProductToCartButton.click();

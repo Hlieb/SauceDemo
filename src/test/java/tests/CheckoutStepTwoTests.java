@@ -8,7 +8,7 @@ public class CheckoutStepTwoTests extends BaseTest {
     @Test
     public void clickFinishButtonTest() {
         productSteps.loginAndAddProductToCart();
-        checkoutStep.fillRequiredFields();
+        checkoutStep.fillRequiredFields("Glieb", "Boiechko", "50-555");
         checkoutStepTwoPage.clickFinishButton();
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/checkout-complete.html", "Error");
     }
@@ -16,7 +16,7 @@ public class CheckoutStepTwoTests extends BaseTest {
     @Test
     public void clickCancelButtonTest() {
         productSteps.loginAndAddProductToCart();
-        checkoutStep.fillRequiredFields();
+        checkoutStep.fillRequiredFields("Glieb", "Boiechko", "50-555");
         checkoutStepTwoPage.clickCancelButton();
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/inventory.html", "Error");
     }

@@ -17,7 +17,7 @@ public class CartPage extends BasePage {
     private static final String PRODUCT_PRICE = "//*[text()='%s']/ancestor::*[@class='cart_item']//*[@class='inventory_item_price']";
 
     public String getProductPrice(String productName) {
-        log.info("Get price from for product" + productName);
+        log.info("Get price for product" + productName);
         return driver.findElement(By.xpath(String.format(PRODUCT_PRICE, productName))).getText();
     }
 

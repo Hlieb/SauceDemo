@@ -13,10 +13,10 @@ public class CheckoutStep {
         cartPage = new CartPage(driver);
     }
 
-    public CheckoutStep fillRequiredFields(){
+    public CheckoutStep fillRequiredFields(String firstname, String surname, String postcode){
         cartPage.openPage()
                 .clickCheckOutButton()
-                .fillField("Glieb", "Boiechko", "50-555")
+                .fillField(firstname, surname, postcode)
                 .clickContinueButton();
         return this;
     }
