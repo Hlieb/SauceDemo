@@ -1,9 +1,11 @@
 package pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+@Log4j2
 public class CheckoutPage extends BasePage {
 
     public CheckoutPage(WebDriver driver) {
@@ -18,21 +20,25 @@ public class CheckoutPage extends BasePage {
 
     @Step("Clicking button continue")
     public  CheckoutStepTwoPage clickContinueButton() {
+        log.info("Clicking button 'Continue'");
         driver.findElement(CONTINUE_BUTTON).click();
         return new CheckoutStepTwoPage(driver);
     }
 
     @Step("Filling fields: FirstName: '{firstName}' + LastName: '{secondName}' + Postcode: '{postcode}'")
     public CheckoutPage fillField(String firstName, String secondName, String postCode) {
+        log.info("Filling field First name:" + firstName);
         driver.findElement(FIELD_FIRST_NAME).sendKeys(firstName);
+        log.info("Filling field Last name:" + secondName);
         driver.findElement(FIELD_LAST_NAME).sendKeys(secondName);
+        log.info("Filling field Postal code:" + postCode);
         driver.findElement(FIELD_POSTAL_CODE).sendKeys(postCode);
         return this;
     }
 
     @Step("Filling FirstName field: '{firstName}'")
     public void checkOutOnlyWithFirstName(String firstName) {
-
+        log.info("Filling only field First name:" + firstName);
         driver.findElement(FIELD_FIRST_NAME).sendKeys(firstName);
     }
 

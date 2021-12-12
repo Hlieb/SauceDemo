@@ -1,3 +1,4 @@
+
 package steps;
 
 import org.openqa.selenium.WebDriver;
@@ -6,21 +7,20 @@ import pages.LoginPage;
 import pages.ProductsPage;
 
 public class CartSteps {
-
     private LoginPage loginPage;
     private ProductsPage productsPage;
     private CartPage cartPage;
 
-    public CartSteps(LoginPage loginPage, ProductsPage productsPage, CartPage cartPage) {
-        this.loginPage = loginPage;
-        this.productsPage = productsPage;
-        this.cartPage = cartPage;
+    public CartSteps(WebDriver driver) {
+        loginPage = new LoginPage(driver);
+        productsPage = new ProductsPage(driver);
+        cartPage = new CartPage(driver);
     }
 
-    public CartSteps AddProductToCart(){
+    public CartSteps addProductToCartAndGoToCart(String username, String password, String productName) {
         loginPage.openPage()
-                .login("standard_user", "secret_sauce")
-                .addProductToCart("Sauce Labs Bolt T-Shirt");
+                .login(username, password)
+                .addProductToCart(productName);
         cartPage.openPage();
         return this;
     }

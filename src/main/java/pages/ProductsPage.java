@@ -1,10 +1,12 @@
 package pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+@Log4j2
 public class ProductsPage extends BasePage {
 
     public ProductsPage(WebDriver driver) {
@@ -19,12 +21,13 @@ public class ProductsPage extends BasePage {
     public ProductsPage addProductToCart(String productName) {
         waitForElementLocated(driver.findElement(By.xpath(String.format(ADD_PRODUCT_TO_CART_BUTTON, productName))), 10);
         WebElement addProductToCartButton = driver.findElement(By.xpath(String.format(ADD_PRODUCT_TO_CART_BUTTON, productName)));
+        log.info("Clicking at the button 'Add Product to Cart'");
         addProductToCartButton.click();
         return this;
     }
 
-    public CartPage openPage() {
+    public ProductsPage openPage() {
         openPage(CART_URL);
-        return new CartPage(driver);
+        return this;
     }
 }

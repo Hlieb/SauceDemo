@@ -15,10 +15,10 @@ public class LoginTest extends BaseTest {
         };
     }
 
-    @Test(retryAnalyzer = RetryTest.class,dataProvider = "name")
-    public void loginWithCorrectDataTest(String username, String password) {
+    @Test
+    public void loginWithCorrectDataTest() {
         loginPage.openPage()
-                .login(username, password);
+                .login("standard_user", "secret_sauce");
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/inventory.html", "URL doesnt wait");
     }
 
