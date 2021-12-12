@@ -44,7 +44,6 @@ public class BaseTest {
         checkoutPage = new CheckoutPage(driver);
         checkoutStepTwoPage = new CheckoutStepTwoPage(driver);
         checkoutComplete = new CheckoutCompletePage(driver);
-        //loginPageFactory = new LoginPageFactory(driver);
         productSteps = new ProductSteps(driver);
         cartSteps = new CartSteps(driver);
         checkoutStep = new CheckoutStep(driver);
